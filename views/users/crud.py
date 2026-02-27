@@ -4,24 +4,22 @@ from sqlalchemy import select, Sequence
 from sqlalchemy.orm import joinedload
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
 from sqlalchemy.engine import Result
-from models import User, Post
+
+from core.models import User, Post
 
 import config
+from views.users.schemas import UserSchemaIn
+
 
 async def create_user(
         session: AsyncSession,
-        username: str,
-        email: str = "",
-        motto: str|None = None,
+        data_create: UserSchemaIn
 ):
     user = User(
-        username=username,
-        email=email,
-        motto=motto
+        **data_create.model_dump()
     )
     async with session.begin():
         session.add(user)
-    print('created user', user)
     return user
 
 async def get_users(session: AsyncSession) -> Sequence[User]:
@@ -80,20 +78,13 @@ async def get_user_with_posts(session: AsyncSession) -> Sequence[User]:
     print(users)
     return users
 
-async def main():
-    async_engine = create_async_engine(
-        url=config.DB_URL,
-        echo=config.DB_ECHO,
-    )
-
-    async_session = async_sessionmaker(async_engine, expire_on_commit=False)
-
-    async with async_session() as session:
-        # await create_user(
-        #     session,
-        #     'John'
-        # )
-        # await create_user(
+# async def main():
+#     async with async_session() as session:
+#         # await create_user(
+#         #     session,
+#         #     'John'
+#         # )
+#         # await create_user(
         #     session,
         #     'Sam',
         #     email ='sam@com.com',
@@ -117,7 +108,4 @@ async def main():
         # await create_post_for_user(session, john, "P1",'P2')
         # await create_post_for_user(session, sam, "P2",'P3')
         # await get_posts_with_user(session)
-        await get_user_with_posts(session)
-
-if __name__ == '__main__':
-    asyncio.run(main())
+        # await get_user_with_posts(session)
