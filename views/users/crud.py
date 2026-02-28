@@ -46,8 +46,8 @@ async def get_user_by_username(session: AsyncSession, username: str) -> User | N
 
 
 async def user_update(
-        session: AsyncSession, user_id: int, data_create: UserSchemaIn ) -> User | None:
-    data = data_create.model_dump(exclude_unset=True)
+        session: AsyncSession, user_id: int, data_update: UserSchemaIn ) -> User | None:
+    data = data_update.model_dump(exclude_unset=True)
     if not data:
         return None
     stmt = select(User).where(User.id == user_id)

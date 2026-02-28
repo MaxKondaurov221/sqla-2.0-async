@@ -5,24 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0dc1195d-954a-4a86-a7f0-bf263e1571fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/models/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/models/db_helper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/models/post.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/models/user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/users/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/users/schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/users/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic.ini" beforeDir="false" afterPath="$PROJECT_DIR$/alembic.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/alembic/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/users/crud.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/users/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/users/crud.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/views/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -26,3 +26,18 @@ class User(Base):
 
     def __repr__(self):
         return str(self)
+
+
+class UserUpdate(Base):
+    username: Mapped[str]
+    email: Mapped[str]
+    motto: Mapped[str]
+
+    def __str__(self):
+        return (f"{self.__class__.__name__}(username = {self.username!r}"
+                f", email = {self.email!r}"
+                f", motto = {self.motto!r}"
+                f", user_id = {self.id!r})")
+
+    def __repr__(self):
+        return str(self)
