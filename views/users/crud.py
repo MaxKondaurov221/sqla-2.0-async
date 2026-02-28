@@ -44,6 +44,28 @@ async def get_user_by_username(session: AsyncSession, username: str) -> User | N
     print(f"user ---- {user}")
     return user
 
+
+async def user_update(
+        session: AsyncSession, user_id: int, data_create: UserSchemaIn ) -> User | None:
+    data = data_create.model_dump(exclude_unset=True)
+    if not data:
+        return None
+    stmt = select(User).where(User.id == user_id)
+    result = await session.execute(stmt)
+    user: User = result.scalars().one()
+
+    for key, value in data.items():
+        setattr(user, key, value)
+
+    await session.commit()
+    await session.refresh(user)
+
+    return user
+
+
+
+
+
 async def create_post_for_user(
         session: AsyncSession,
         user: User,
