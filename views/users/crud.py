@@ -1,14 +1,12 @@
-import asyncio
-
 from sqlalchemy import select, Sequence
 from sqlalchemy.orm import joinedload
-from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
+from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.engine import Result
 
 from core.models import User, Post
 
 import config
-from views.users.schemas import UserSchemaIn
+from views.users.schemas import UserSchemaIn, UserSchemaUpdate
 
 
 async def create_user(
@@ -45,24 +43,15 @@ async def get_user_by_username(session: AsyncSession, username: str) -> User | N
     return user
 
 
-async def user_update(
-        session: AsyncSession, user_id: int, data_update: UserSchemaIn ) -> User | None:
-    data = data_update.model_dump(exclude_unset=True)
-    if not data:
-        return None
-    stmt = select(User).where(User.id == user_id)
-    result = await session.execute(stmt)
-    user: User = result.scalars().one()
 
-    for key, value in data.items():
-        setattr(user, key, value)
+
+async def update_user_partial(session: AsyncSession, user: User, user_update: UserSchemaUpdate):
+    for name, value  in user_update.model_dump(exclude_unset=True).items():
+        setattr(user, name, value)
 
     await session.commit()
     await session.refresh(user)
-
     return user
-
-
 
 
 

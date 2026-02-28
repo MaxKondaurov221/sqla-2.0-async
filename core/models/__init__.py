@@ -3,10 +3,9 @@ __all__ = (
     'User',
     'Post',
     'db_helper',
-    'UserUpdate'
 )
 
 from .base import Base
 from .post import Post
-from .user import User, UserUpdate
+from .user import User
 from .db_helper import db_helper
